@@ -1,0 +1,10 @@
+.mealTitle{
+    color: white;
+    background-color: black;
+}
+.row{
+    margin-top: 10px;
+}
+#howLongLabel{
+    text-align: right;
+}
