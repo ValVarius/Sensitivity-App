@@ -19,6 +19,8 @@
   "homepage": "https://github.com/ValVarius/Sensitivity-App#readme",
   "dependencies": {
     "express": "^4.18.2",
-    "express-handlebars": "^6.0.6"
+    "express-handlebars": "^6.0.6",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.25.3"
   }
 }
