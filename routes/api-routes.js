@@ -11,25 +11,39 @@ var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function (app) {
-  // GET route for getting all of the days Available
-  app.get("/api/getDays/", function (req, res) {
-    db.Day.findAll({}).then(function (dbDay) {
-      res.json(dbDay);
+  // GET route for getting all of the Meals with a date Available
+  app.get("/api/getMeals/:date", function (req, res) {
+    console.log(req.params);
+    db.Meal.findAll({
+      where: {
+        date: req.params.date
+      }
+    }).then(function (dbMeal) {
+      res.json(dbMeal);
+    });
+  });
+
+// GET route for getting all of the Meals
+  app.get("/api/Meal", function(req, res) {
+
+    db.Meal.findAll({}).then(function(dbMeal) {
+      // We have access to the todos as an argument inside of the callback function
+      res.json(dbMeal);
     });
   });
 
   // POST route for saving a new post
-  app.post("/api/Day", function (req, res) {
+  app.post("/api/Meal", function (req, res) {
     // get date
     let d = new Date();
     let month = d.getMonth() + 1;
     let day = d.getDate();
     let output =
       d.getFullYear() +
-      "/" +
+      "|" +
       (month < 10 ? "0" : "") +
       month +
-      "/" +
+      "|" +
       (day < 10 ? "0" : "") +
       day;
 
@@ -43,7 +57,7 @@ module.exports = function (app) {
     }
     db.Meal.create({
       date: output,
-      weight: req.body.weight,
+      weight: req.body.weight ? req.body.weight : 0,
       title: req.body.title,
       food: req.body.food,
       time: req.body.time,
