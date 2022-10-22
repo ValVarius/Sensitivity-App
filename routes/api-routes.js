@@ -20,36 +20,46 @@ module.exports = function (app) {
 
   // POST route for saving a new post
   app.post("/api/Day", function (req, res) {
-    console.log(req.body);
-    // Check if day already exist??
+    // get date
+    let d = new Date();
+    let month = d.getMonth() + 1;
+    let day = d.getDate();
+    let output =
+      d.getFullYear() +
+      "/" +
+      (month < 10 ? "0" : "") +
+      month +
+      "/" +
+      (day < 10 ? "0" : "") +
+      day;
+
     let request = req.body;
-
     console.log(request);
-
+    // make switches into boolean
     for (const property in request) {
       if (request[property] == "on") {
         request[property] = 1;
       }
     }
-
-    db.Day.create({
+    db.Meal.create({
+      date: output,
       weight: req.body.weight,
-    }).then(function (dbPost) {
-      db.Meal.create({
-        title: req.body.title,
-        food: req.body.food,
-        time: req.body.time,
-        bloating: req.body.bloating,
-        headache: req.body.headache,
-        itchiness: req.body.itchiness,
-        reflux: req.body.reflux,
-        redness: req.body.redness,
-        noseRunning: req.body.noseRunning,
-        howLong: req.body.howLong,
-        other: req.body.other,
-      }).then(function (dbPost) {
-        res.json(req.body);
-      });
+      title: req.body.title,
+      food: req.body.food,
+      time: req.body.time,
+      bloating: req.body.bloating,
+      headache: req.body.headache,
+      itchiness: req.body.itchiness,
+      reflux: req.body.reflux,
+      redness: req.body.redness,
+      noseRunning: req.body.noseRunning,
+      howLong: req.body.howLong,
+      other: req.body.other
+    }).then(function (dbMeal) {
+      res.json(dbMeal);
     });
+
+
+
   });
 };
