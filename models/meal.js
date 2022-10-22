@@ -1,5 +1,13 @@
 module.exports = function(sequelize, DataTypes) {
     const Meal = sequelize.define("Meal", {
+      date: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      weight: {
+        type: DataTypes.FLOAT,
+        allowNull: true,
+      },
       title: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -9,11 +17,10 @@ module.exports = function(sequelize, DataTypes) {
       },
       food: {
         type: DataTypes.TEXT,
-        allowNull: false,
         len: [1]
       },
       time: {
-        type: DataTypes.TIME
+        type: DataTypes.STRING
       },
       bloating: {
         type: DataTypes.BOOLEAN
@@ -45,15 +52,15 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
   
-    Meal.associate = function(models) {
-      // We're saying that a Meal should belong to an Day
-      // A Meal can't be created without a Day due to the foreign key constraint
-      Meal.belongsTo(models.Day, {
-        foreignKey: {
-          allowNull: false
-        }
-      });
-    };
+    // Meal.associate = function(models) {
+    //   // We're saying that a Meal should belong to an Day
+    //   // A Meal can't be created without a Day due to the foreign key constraint
+    //   Meal.belongsTo(models.Day, {
+    //     foreignKey: {
+    //       allowNull: true
+    //     }
+    //   });
+    // };
   
     return Meal;
 };

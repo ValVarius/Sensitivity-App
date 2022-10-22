@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  // display the date
   let displayDate = () => {
     let d = new Date();
     let month = d.getMonth() + 1;
@@ -20,9 +21,16 @@ $(document).ready(function () {
   };
 
   displayDate();
+});
 
-  
-    
+// if the meal is breakfast, the morning wight is unnecessary
+$("#mealTitle").change(function () {
 
-  
+  console.log(this.form);
+  let meal = $("#mealTitle").find(":selected").val();
+  $("#weight").attr("hidden", true);
+
+  if (meal == "breakfast") {
+    $("#weight").removeAttr("hidden");
+  }
 });
