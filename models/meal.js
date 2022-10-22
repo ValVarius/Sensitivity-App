@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
       reflux: {
         type: DataTypes.BOOLEAN
       },
-      reedness: {
+      redness: {
         type: DataTypes.BOOLEAN
       },
       noseRunning: {
