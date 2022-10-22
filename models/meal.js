@@ -5,8 +5,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false,
       },
       weight: {
-        type: DataTypes.FLOAT,
-        allowNull: true,
+        type: DataTypes.FLOAT
       },
       title: {
         type: DataTypes.STRING,
