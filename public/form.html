@@ -22,8 +22,41 @@
     <!-- JavaScript Bundle with Popper -->
   </head>
   <body>
+  <nav class="navbar navbar-expand">
+    <div class="container-fluid">
+      <a href="#" class="navbar-brand"><img
+          style="max-width:100px; margin-top: -7px;"
+          src="https://cellsciencesystems.com/images/cell-science-systems-logo.png"
+          alt="cell science systems logo"
+        /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Food Logs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../selectDayForm.handlebars">select date</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <body>
     <div class="container">
-     
       <form class = "form" action="/api/Meal" method="post" _blank>
         <div class="row">
           <select
@@ -266,7 +299,7 @@
           <button
             type="submit"
             class="btn btn-outline-danger"
-            id="breakfast"
+            id="savebtn"
             onclick="formSubmit()"
             value="Send form data!"
           >Save</button>
