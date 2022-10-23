@@ -19,7 +19,8 @@ module.exports = function (app) {
         date: req.params.date
       }
     }).then(function (dbMeal) {
-      res.json(dbMeal);
+      // res.json(dbMeal);
+      res.render("card", {dbMeal});
     });
   });
 
@@ -70,7 +71,11 @@ module.exports = function (app) {
       howLong: req.body.howLong,
       other: req.body.other
     }).then(function (dbMeal) {
-      res.json(dbMeal);
+      // console.log(dbMeal.dataValues);
+      // res.json(dbMeal.dataValues);
+      let meal = dbMeal
+      
+      res.render("card", {meal});
     });
 
 
