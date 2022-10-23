@@ -18,7 +18,7 @@ $(document).ready(function () {
       output +
       `</span>`;
 
-    today = output
+    today = output;
     $(".navbar").append(time);
   };
   displayDate();
@@ -26,15 +26,13 @@ $(document).ready(function () {
   // check for all meals with this date and store it???
   console.log(today);
 
-
-    $.get("/api/getMeals/" + today, function(data) {
-      console.log("Meals: ", data);
-    }); 
-    $.get("/api/Meal", function(data) {
-      console.log("Meals: ", data);
-    });
-  
-  }); //End of ready function
+  $.get("/api/getMeals/" + today, function (data) {
+    console.log("Meals: ", data);
+  });
+  $.get("/api/Meal", function (data) {
+    console.log("Meals: ", data);
+  });
+}); //End of ready function
 // if the meal is breakfast, the morning wight is unnecessary
 $("#mealTitle").change(function () {
   console.log(this.form);
