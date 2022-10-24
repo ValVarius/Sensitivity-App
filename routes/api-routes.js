@@ -52,4 +52,16 @@ module.exports = function (app) {
       res.json(dbMeal);
     });
   });
+
+
+  app.delete("/api/delete/:id", function(req, res) {
+    db.Meal.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbMeal) {
+      res.json(dbMeal);
+    });
+  });
+
 };
