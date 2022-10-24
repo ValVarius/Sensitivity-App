@@ -17,6 +17,13 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/form.html"));
   });
 
+  app.get("/calendar", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/date.html"));
+  });
+
+  app.get("/card", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/day.html"));
+  });
   
 
 };

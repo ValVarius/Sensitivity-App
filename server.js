@@ -1,7 +1,5 @@
 
 const express = require("express");
-// Set Handlebars.
-// const exphbs = require("express-handlebars");
 
 // Sets up the Express App
 const app = express();
@@ -14,16 +12,9 @@ const db = require("./models");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// app.engine("handlebars", exphbs.engine({ defaultLayout: "main" }));
-// app.set("view engine", "handlebars");
-
 // Static directory
 app.use(express.static(__dirname + '/public'));
 
-// Routes
-// app.get("/", function(req, res) {
-//     res.render("index");
-//   });
 // =============================================================
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
