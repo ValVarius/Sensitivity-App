@@ -4,8 +4,6 @@
 
 // Dependencies
 // =============================================================
-
-// Requiring our Todo model
 var db = require("../models");
 
 // Routes
@@ -16,19 +14,16 @@ module.exports = function (app) {
     console.log(req.params);
     db.Meal.findAll({
       where: {
-        date: req.params.date
-      }
+        date: req.params.date,
+      },
     }).then(function (dbMeal) {
-      // res.json(dbMeal);
-      res.render("card", {dbMeal});
+      res.json(dbMeal);
     });
   });
 
-// GET route for getting all of the Meals
-  app.get("/api/Meal", function(req, res) {
-
-    db.Meal.findAll({}).then(function(dbMeal) {
-      // We have access to the todos as an argument inside of the callback function
+  // GET route for getting all of the Meals
+  app.get("/api/Meal", function (req, res) {
+    db.Meal.findAll({}).then(function (dbMeal) {
       res.json(dbMeal);
     });
   });
@@ -36,49 +31,26 @@ module.exports = function (app) {
   // POST route for saving a new post
   app.post("/api/Meal", function (req, res) {
     // get date
-    let d = new Date();
-    let month = d.getMonth() + 1;
-    let day = d.getDate();
-    let output =
-      d.getFullYear() +
-      "|" +
-      (month < 10 ? "0" : "") +
-      month +
-      "|" +
-      (day < 10 ? "0" : "") +
-      day;
 
-    let request = req.body;
-    console.log(request);
-    // make switches into boolean
-    for (const property in request) {
-      if (request[property] == "on") {
-        request[property] = 1;
-      }
-    }
+    console.log(req.body);
+
     db.Meal.create({
-      date: output,
+      date: req.body.weight,
       weight: req.body.weight ? req.body.weight : 0,
       title: req.body.title,
       food: req.body.food,
       time: req.body.time,
       bloating: req.body.bloating,
       headache: req.body.headache,
+      gas: req.body.gas,
       itchiness: req.body.itchiness,
       reflux: req.body.reflux,
       redness: req.body.redness,
       noseRunning: req.body.noseRunning,
       howLong: req.body.howLong,
-      other: req.body.other
+      other: req.body.other,
     }).then(function (dbMeal) {
-      // console.log(dbMeal.dataValues);
-      // res.json(dbMeal.dataValues);
-      let meal = dbMeal
-      
-      res.render("card", {meal});
+      res.json(dbMeal);
     });
-
-
-
   });
 };

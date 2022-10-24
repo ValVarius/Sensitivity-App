@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <!-- CSS only -->
+    <!-- CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -18,8 +18,9 @@
       media="screen"
       title="no title"
     />
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-    <!-- JavaScript Bundle with Popper -->
   </head>
   <body>
   <nav class="navbar navbar-expand">
@@ -57,7 +58,8 @@
   </nav>
   <body>
     <div class="container">
-      <form class = "form" action="/api/Meal" method="post" _blank>
+      <!-- <form class = "form" action="/api/Meal" method="post" target=""> -->
+      <form class = "form" id="target">
         <div class="row">
           <select
             class="form-select"
@@ -79,7 +81,7 @@
           <label for="food eaten" class="form-label">Food Eaten</label>
           <textarea
             class="form-control"
-            id="breakfastFood"
+            id="foodeaten"
             rows="4"
             name="food"
             type="text"
@@ -92,6 +94,7 @@
               aria-label="Default select example"
               name="time"
               type="time"
+              id="time"
             >
               <option selected value="5:00am">5:00am</option>
               <option value="6:00am">6:00am</option>
@@ -114,7 +117,7 @@
             </select>
           </div>
     
-          <div class="col" id="weight">
+          <div class="col" >
             <div class="input-group mb-3">
               <span class="input-group-text">Morning Weight</span>
               <input
@@ -123,6 +126,7 @@
                 aria-label="Amount"
                 name="weight"
                 type="float"
+                id="weight"
               />
               <span class="input-group-text">lb</span>
     
@@ -137,7 +141,7 @@
                 class="form-check-input"
                 type="checkbox"
                 role="switch"
-                id="flexSwitchCheckDefault"
+                id="bloat"
                 name="bloating"
               />
               <label
@@ -152,7 +156,7 @@
                 class="form-check-input"
                 type="checkbox"
                 role="switch"
-                id="flexSwitchCheckDefault"
+                id="head"
                 name="headache"
               />
               <label
@@ -167,7 +171,7 @@
                 class="form-check-input"
                 type="checkbox"
                 role="switch"
-                id="flexSwitchCheckDefault"
+                id="gas"
                 name="gas"
               />
               <label
@@ -182,7 +186,7 @@
                 class="form-check-input"
                 type="checkbox"
                 role="switch"
-                id="flexSwitchCheckDefault"
+                id="itchiness"
                 name="itchiness"
               />
               <label
@@ -197,7 +201,7 @@
                 class="form-check-input"
                 type="checkbox"
                 role="switch"
-                id="flexSwitchCheckDefault"
+                id="reflux"
                 name="reflux"
               />
               <label
@@ -212,7 +216,7 @@
                 class="form-check-input"
                 type="checkbox"
                 role="switch"
-                id="flexSwitchCheckDefault"
+                id="redness"
                 name="redness"
               />
               <label
@@ -227,7 +231,7 @@
                 class="form-check-input"
                 type="checkbox"
                 role="switch"
-                id="flexSwitchCheckDefault"
+                id="noseRunning"
                 name="noseRunning"
               />
               <label class="form-check-label" for="flexSwitchCheckDefault">Nose
@@ -240,8 +244,8 @@
             <label for="food eaten" class="form-label">How long after meal:</label>
           </div>
     
-          <div class="col-8">
-            <div class="form-check form-check-inline">
+          <div class="col-8" id="howlong">
+            <div class="form-check form-check-inline" >
               <input
                 class="form-check-input"
                 type="radio"
@@ -292,6 +296,7 @@
             name="other"
             type="text"
             rows="1"
+            id="other"
           ></textarea>
     
         </div>
@@ -300,7 +305,6 @@
             type="submit"
             class="btn btn-outline-danger"
             id="savebtn"
-            onclick="formSubmit()"
             value="Send form data!"
           >Save</button>
         </div>
@@ -309,11 +313,13 @@
     </div>
     
     
-
+<!-- Bootstrap -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
       crossorigin="anonymous"
     ></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
   </body>
 </html>
