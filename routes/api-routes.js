@@ -35,7 +35,7 @@ module.exports = function (app) {
     console.log(req.body);
 
     db.Meal.create({
-      date: req.body.weight,
+      date: req.body.date,
       weight: req.body.weight ? req.body.weight : 0,
       title: req.body.title,
       food: req.body.food,
