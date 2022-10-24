@@ -1,11 +1,11 @@
 $(document).ready(function () {
   // display the date
-  let today;
+  
   let displayDate = () => {
     let d = new Date();
     let month = d.getMonth() + 1;
     let day = d.getDate();
-    let today =
+    var today =
       d.getFullYear() +
       "|" +
       (month < 10 ? "0" : "") +
@@ -13,27 +13,21 @@ $(document).ready(function () {
       "|" +
       (day < 10 ? "0" : "") +
       day;
-    // let time =
-    //   `<span class="navbar-text" id="date" style="margin-right: 25px; color: black";>` +
-    //   output +
-    //   `</span>`;
-    // console.log(today);
     $("#date").text(today);
-    // $(".navbar").append(time);
-    // console.log($("#date").text());
   };
   displayDate();
+  // retrieve all the meals with today's date
+let url = "/api/getMeals/" + $("#date").text();
+  $.get(url, function (data) {
+    console.log("Meals: ", data);
+  });
 
-  // check for all meals with this date and store it???
   
-// retrieve all the meals with today's date
-  $.get("/api/getMeals/" + today, function (data) {
-    console.log("Meals: ", data);
-  });
+
   // retrieve all the meals
-  $.get("/api/Meal", function (data) {
-    console.log("Meals: ", data);
-  });
+  // $.get("/api/Meal", function (data) {
+  //   console.log("Meals: ", data);
+  // });
 }); //End of ready function
 // if the meal is breakfast, the morning wight is unnecessary
 $("#mealTitle").change(function () {

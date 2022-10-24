@@ -60,260 +60,303 @@
     </div>
   </nav>
   <body>
-    <div class="container">
-      <!-- <form class = "form" action="/api/Meal" method="post" target=""> -->
-      <form class = "form" id="target">
-        <div class="row">
-          <select
-            class="form-select"
-            aria-label="Default select example"
-            name="title"
-            type="time"
-            id="mealTitle"
-          >
-            <option value="breakfast">Breakfast</option>
-            <option value="mid-morning">Mid-Morning Snack</option>
-            <option value="lunch">Lunch</option>
-            <option value="afternoon">Afternoon Snack</option>
-            <option value="dinner">Dinner</option>
     
-          </select>
-        </div>
-    
-        <div class="row">
-          <label for="food eaten" class="form-label">Food Eaten</label>
-          <textarea
-            class="form-control"
-            id="foodeaten"
-            rows="4"
-            name="food"
-            type="text"
-          ></textarea>
-        </div>
-        <div class="row">
-          <div class="col timeslot" id="timeslots">
-            <select
-              class="form-select timing"
-              aria-label="Default select example"
-              name="time"
-              type="time"
-              id="time"
-            >
-              <option selected value="5:00am">5:00am</option>
-              <option value="6:00am">6:00am</option>
-              <option value="7:00am">7:00am</option>
-              <option value="8:00am">8:00am</option>
-              <option value="9:00am">9:00am</option>
-              <option value="10:00am">10:00am</option>
-              <option value="11:00am">11:00am</option>
-              <option value="12:00am">12:00am</option>
-              <option value="1:00pm">1:00pm</option>
-              <option value="2:00pm">2:00pm</option>
-              <option value="3:00pm">3:00pm</option>
-              <option value="4:00pm">4:00pm</option>
-              <option value="5:00pm">5:00pm</option>
-              <option value="6:00pm">6:00pm</option>
-              <option value="7:00pm">7:00pm</option>
-              <option value="8:00pm">8:00pm</option>
-              <option value="9:00pm">9:00pm</option>
-              <option value="10:00pm">10:00pm</option>
-            </select>
+      <div class="row">
+        <div class="col" >
+          <div class="container">
+          <nav id="navbar-displayer" class="navbar bg-light px-3 mb-3">
+            <a class="navbar-brand" href="#">Your Logged Meals</a>
+            <ul class="nav nav-pills">
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#scrollspyHeading1">Breakfast</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#scrollspyHeading2">Mid Morning</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#scrollspyHeading3">Lunch</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#scrollspyHeading4">Mid Afternoon</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#scrollspyHeading5">Dinner</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+          <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
+            <h4 id="scrollspyHeading1">Breakfast</h4>
+            <p id="brakfastInfo">...</p>
+            <h4 id="scrollspyHeading2">Mid Morning</h4>
+            <p id="mid-morningInfo">...</p>
+            <h4 id="scrollspyHeading3">Lunch</h4>
+            <p id="LunchInfo">...</p>
+            <h4 id="scrollspyHeading4">Mid Afternoon</h4>
+            <p id="mid-afternoonInfo">...</p>
+            <h4 id="scrollspyHeading5">Dinner</h4>
+            <p id="">...</p>
           </div>
-    
-          <div class="col" >
-            <div class="input-group mb-3">
-              <span class="input-group-text">Morning Weight</span>
-              <input
-                type="text"
+        </div>
+        </div>
+        <!-- FORM COLUMN -->
+        <!-- <div class="col" >
+          <div class="container">
+          <form class = "form" id="target">
+            <div class="row">
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                name="title"
+                type="time"
+                id="mealTitle"
+              >
+                <option value="breakfast">Breakfast</option>
+                <option value="mid-morning">Mid-Morning Snack</option>
+                <option value="lunch">Lunch</option>
+                <option value="afternoon">Afternoon Snack</option>
+                <option value="dinner">Dinner</option>
+        
+              </select>
+            </div>
+        
+            <div class="row">
+              <label for="food eaten" class="form-label">Food Eaten</label>
+              <textarea
                 class="form-control"
-                aria-label="Amount"
-                name="weight"
-                type="float"
-                id="weight"
-              />
-              <span class="input-group-text">lb</span>
-    
+                id="foodeaten"
+                rows="4"
+                name="food"
+                type="text"
+              ></textarea>
             </div>
-          </div>
+            <div class="row">
+              <div class="col timeslot" id="timeslots">
+                <select
+                  class="form-select timing"
+                  aria-label="Default select example"
+                  name="time"
+                  type="time"
+                  id="time"
+                >
+                  <option selected value="5:00am">5:00am</option>
+                  <option value="6:00am">6:00am</option>
+                  <option value="7:00am">7:00am</option>
+                  <option value="8:00am">8:00am</option>
+                  <option value="9:00am">9:00am</option>
+                  <option value="10:00am">10:00am</option>
+                  <option value="11:00am">11:00am</option>
+                  <option value="12:00am">12:00am</option>
+                  <option value="1:00pm">1:00pm</option>
+                  <option value="2:00pm">2:00pm</option>
+                  <option value="3:00pm">3:00pm</option>
+                  <option value="4:00pm">4:00pm</option>
+                  <option value="5:00pm">5:00pm</option>
+                  <option value="6:00pm">6:00pm</option>
+                  <option value="7:00pm">7:00pm</option>
+                  <option value="8:00pm">8:00pm</option>
+                  <option value="9:00pm">9:00pm</option>
+                  <option value="10:00pm">10:00pm</option>
+                </select>
+              </div>
+        
+              <div class="col" >
+                <div class="input-group mb-3">
+                  <span class="input-group-text">Morning Weight</span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Amount"
+                    name="weight"
+                    type="float"
+                    id="weight"
+                  />
+                  <span class="input-group-text">lb</span>
+        
+                </div>
+              </div>
+            </div>
+        
+            <div class="row" id="checks">
+              <div class="col">
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="bloat"
+                    name="bloating"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="flexSwitchCheckDefault"
+                  >Bloating</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="head"
+                    name="headache"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="flexSwitchCheckDefault"
+                  >Headache</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="gas"
+                    name="gas"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="flexSwitchCheckDefault"
+                  >Gas</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="itchiness"
+                    name="itchiness"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="flexSwitchCheckDefault"
+                  >Itchiness</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="reflux"
+                    name="reflux"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="flexSwitchCheckDefault"
+                  >Reflux</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="redness"
+                    name="redness"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="flexSwitchCheckDefault"
+                  >Redness/Flushing</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="noseRunning"
+                    name="noseRunning"
+                  />
+                  <label class="form-check-label" for="flexSwitchCheckDefault">Nose
+                    Running</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col" id="howLongLabel">
+                <label for="food eaten" class="form-label">How long after meal:</label>
+              </div>
+        
+              <div class="col-8" id="howlong">
+                <div class="form-check form-check-inline" >
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="howLong"
+                    id="inlineRadio1"
+                    value="Immediately"
+                  />
+                  <label class="form-check-label" for="inlineRadio1">Immediately</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="howLong"
+                    id="inlineRadio2"
+                    value="Within 1st Hour"
+                  />
+                  <label class="form-check-label" for="inlineRadio2">Within 1st Hour</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="howLong"
+                    id="inlineRadio3"
+                    value="1 to 2 Hours"
+                  />
+                  <label class="form-check-label" for="inlineRadio3">1 to 2 Hours</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="howLong"
+                    id="inlineRadio1"
+                    value="2 - 4 hours"
+                  />
+                  <label class="form-check-label" for="inlineRadio1">2 - 4 hours</label>
+                </div>
+        
+              </div>
+        
+            </div>
+            <div class="row">
+              <label for="food eaten" class="form-label">Other:</label>
+              <textarea
+                class="form-control"
+                name="other"
+                type="text"
+                rows="1"
+                id="other"
+              ></textarea>
+        
+            </div>
+            <div class="row">
+              <button
+                type="submit"
+                class="btn btn-outline-danger"
+                id="savebtn"
+                value="Send form data!"
+              >Save</button>
+            </div>
+          </form>
         </div>
-    
-        <div class="row" id="checks">
-          <div class="col">
-            <div class="form-check form-switch">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                role="switch"
-                id="bloat"
-                name="bloating"
-              />
-              <label
-                class="form-check-label"
-                for="flexSwitchCheckDefault"
-              >Bloating</label>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-check form-switch">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                role="switch"
-                id="head"
-                name="headache"
-              />
-              <label
-                class="form-check-label"
-                for="flexSwitchCheckDefault"
-              >Headache</label>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-check form-switch">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                role="switch"
-                id="gas"
-                name="gas"
-              />
-              <label
-                class="form-check-label"
-                for="flexSwitchCheckDefault"
-              >Gas</label>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-check form-switch">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                role="switch"
-                id="itchiness"
-                name="itchiness"
-              />
-              <label
-                class="form-check-label"
-                for="flexSwitchCheckDefault"
-              >Itchiness</label>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-check form-switch">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                role="switch"
-                id="reflux"
-                name="reflux"
-              />
-              <label
-                class="form-check-label"
-                for="flexSwitchCheckDefault"
-              >Reflux</label>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-check form-switch">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                role="switch"
-                id="redness"
-                name="redness"
-              />
-              <label
-                class="form-check-label"
-                for="flexSwitchCheckDefault"
-              >Redness/Flushing</label>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-check form-switch">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                role="switch"
-                id="noseRunning"
-                name="noseRunning"
-              />
-              <label class="form-check-label" for="flexSwitchCheckDefault">Nose
-                Running</label>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col" id="howLongLabel">
-            <label for="food eaten" class="form-label">How long after meal:</label>
-          </div>
-    
-          <div class="col-8" id="howlong">
-            <div class="form-check form-check-inline" >
-              <input
-                class="form-check-input"
-                type="radio"
-                name="howLong"
-                id="inlineRadio1"
-                value="Immediately"
-              />
-              <label class="form-check-label" for="inlineRadio1">Immediately</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="howLong"
-                id="inlineRadio2"
-                value="Within 1st Hour"
-              />
-              <label class="form-check-label" for="inlineRadio2">Within 1st Hour</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="howLong"
-                id="inlineRadio3"
-                value="1 to 2 Hours"
-              />
-              <label class="form-check-label" for="inlineRadio3">1 to 2 Hours</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="howLong"
-                id="inlineRadio1"
-                value="2 - 4 hours"
-              />
-              <label class="form-check-label" for="inlineRadio1">2 - 4 hours</label>
-            </div>
-    
-          </div>
-    
-        </div>
-        <div class="row">
-          <label for="food eaten" class="form-label">Other:</label>
-          <textarea
-            class="form-control"
-            name="other"
-            type="text"
-            rows="1"
-            id="other"
-          ></textarea>
-    
-        </div>
-        <div class="row">
-          <button
-            type="submit"
-            class="btn btn-outline-danger"
-            id="savebtn"
-            value="Send form data!"
-          >Save</button>
-        </div>
-      </form>
-    
+        </div> -->
+        <!-- END of FORM COLUMN -->
+      
     </div>
+    
     
     
 <!-- Bootstrap -->
@@ -326,3 +369,7 @@
 
   </body>
 </html>
+
+
+
+

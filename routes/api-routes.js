@@ -11,7 +11,6 @@ var db = require("../models");
 module.exports = function (app) {
   // GET route for getting all of the Meals with a date Available
   app.get("/api/getMeals/:date", function (req, res) {
-    console.log(req.params);
     db.Meal.findAll({
       where: {
         date: req.params.date,
