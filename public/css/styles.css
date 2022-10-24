@@ -13,11 +13,16 @@
   margin-bottom: 25px;
 }
 .container{
-  margin-bottom: 25px;
+  /* margin-bottom: 25px;
+  border-style: solid;
+   */
+   background-color: #fbfbf8;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.45);
 }
 
+
 .row {
-  margin-top: 20px;
+  /* margin-top: 20px; */
   /* box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.45); */
 }
 #howLongLabel {
@@ -30,6 +35,6 @@
 }
 body {
   /* background-color: coral; */
-  background-color: #fbfbf8;
-  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.45);
+  /* background-color: #fbfbf8;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.45); */
 }

@@ -11,7 +11,6 @@ var db = require("../models");
 module.exports = function (app) {
   // GET route for getting all of the Meals with a date Available
   app.get("/api/getMeals/:date", function (req, res) {
-    console.log(req.params);
     db.Meal.findAll({
       where: {
         date: req.params.date,
@@ -35,7 +34,7 @@ module.exports = function (app) {
     console.log(req.body);
 
     db.Meal.create({
-      date: req.body.weight,
+      date: req.body.date,
       weight: req.body.weight ? req.body.weight : 0,
       title: req.body.title,
       food: req.body.food,
@@ -53,4 +52,16 @@ module.exports = function (app) {
       res.json(dbMeal);
     });
   });
+
+
+  app.delete("/api/delete/:id", function(req, res) {
+    db.Meal.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbMeal) {
+      res.json(dbMeal);
+    });
+  });
+
 };
