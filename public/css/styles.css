@@ -6,11 +6,15 @@
   text-align: center;
   font-size: xx-large;
   font-weight: bolder;
+  /* margin-bottom: 10px; */
   /* opacity: 0.8; */
 }
 #savebtn {
   box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.45);
-  margin-bottom: 25px;
+  max-width: 50%;
+  margin: auto;
+  margin-bottom: 10px;
+
 }
 .container{
   /* margin-bottom: 25px;
@@ -22,7 +26,7 @@
 
 
 .row {
-  /* margin-top: 20px; */
+  margin-top: 10px;
   /* box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16), 0 4px 6px rgba(0, 0, 0, 0.45); */
 }
 #howLongLabel {
