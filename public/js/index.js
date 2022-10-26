@@ -138,66 +138,73 @@ $(document).ready(function () {
         }
       });
 
-
-
       // FORM SUBMIT
-  $("form").submit(function (event) {
-    event.preventDefault();
-    console.log("Meals2: ", event);
-    // console.log($("#date").text());
+      $("form").submit(function (event) {
+        event.preventDefault();
+        // console.log($("#date").text());
 
-    data.forEach((element) => {
-      console.log(element.title + " vs " + $("#mealTitle").val());
-      if (element.title == $("#mealTitle").val()) {
-        console.log("happening");
-        $.ajax({
-          method: "DELETE",
-          url: "/api/delete/" + element.id,
+        data.forEach((element) => {
+          console.log(element.title + " vs " + $("#mealTitle").val());
+          if (element.title == $("#mealTitle").val()) {
+            console.log("happening");
+            $.ajax({
+              method: "DELETE",
+              url: "/api/delete/" + element.id,
+            });
+          }
         });
-      }
-    });
 
-    console.log("This is the after");
-    let radioValue = $("input[name='howLong']:checked").val();
-    console.log(radioValue);
+        console.log("This is the after");
+        let radioValue = $("input[name='howLong']:checked").val();
+        console.log(radioValue);
 
-    let formData = {
-      // CORRECT THIS TO REFLECT THE DATE BEING DISPLAYED
-      date:
-        parseInt($("#select-month").val()) +
-        1 +
-        "|"+
-        $("#select-day").val() +
-        "|"+
-        $("#select-year").val(),
-      weight: $("#weight").val(),
-      title: $("#mealTitle").val(),
-      food: $("#foodeaten").val(),
-      time: $("#time").val(),
+        let formData = {
+          date:
+            parseInt($("#select-month").val()) +
+            1 +
+            "|" +
+            $("#select-day").val() +
+            "|" +
+            $("#select-year").val(),
+          weight: $("#weight").val(),
+          title: $("#mealTitle").val(),
+          food: $("#foodeaten").val(),
+          time: $("#time").val(),
 
-      bloating: $("#bloat:checked").val() ? true : false,
-      headache: $("#head:checked").val() ? true : false,
-      gas: $("#gas:checked").val() ? true : false,
-      itchiness: $("#itchiness:checked").val() ? true : false,
-      reflux: $("#reflux:checked").val() ? true : false,
-      redness: $("#redness:checked").val() ? true : false,
-      noseRunning: $("#noseRunning:checked").val() ? true : false,
-      howLong: radioValue,
-      other: $("#other").val(),
-    };
-    console.log(formData);
+          bloating: $("#bloat:checked").val() ? true : false,
+          headache: $("#head:checked").val() ? true : false,
+          gas: $("#gas:checked").val() ? true : false,
+          itchiness: $("#itchiness:checked").val() ? true : false,
+          reflux: $("#reflux:checked").val() ? true : false,
+          redness: $("#redness:checked").val() ? true : false,
+          noseRunning: $("#noseRunning:checked").val() ? true : false,
+          howLong: radioValue,
+          other: $("#other").val(),
+        };
+        console.log(formData);
 
-    $.post("/api/Meal", formData).then(function (data) {
-      window.location.reload();
-      console.log(data);
-    });
-  });
-  // END OF FORM SUBMIT
+        $.post("/api/Meal", formData).then(function (data) {
+          window.location.reload();
+          console.log(data);
+        });
+      });
+      // END OF FORM SUBMIT
     });
   };
   retrieveMeals(today);
 
-  
+  // If search button is clicked retrieveMeals of selected day
+
+  $("#daysearch").click(function () {
+    let day =
+      parseInt($("#select-month").val()) +
+      1 +
+      "|" +
+      $("#select-day").val() +
+      "|" +
+      $("#select-year").val();
+    retrieveMeals(day);
+  });
 
   // let url = "/api/getMeals/" + date;
   // $.get(url, function (data) {
