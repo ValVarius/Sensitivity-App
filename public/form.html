@@ -46,13 +46,30 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Food Logs</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../selectDayForm.handlebars">select date</a>
-          </li>
+          
+          
         </ul>
+
+
+        <div class="select-date">
+          <select id="select-day"></select>
+          <select id="select-month">
+                <option value="0">January
+                <option value="1">February
+                <option value="2">March
+                <option value="3">April
+                <option value="4">May
+                <option value="5">June
+                <option value="6">July
+                <option value="7">August
+                <option value="8">September
+                <option value="9">October
+                <option value="10">November
+                <option value="11">December
+          </select>
+          <select id="select-year"></select>
+          <button id="daysearch">Search</button>
+        </div>
 
       </div>
       <span class="navbar-text" id="date" style="margin-right: 25px; color: black";>
