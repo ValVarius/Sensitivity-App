@@ -62,6 +62,13 @@ $(document).ready(function () {
     $.get(url, function (data) {
       console.log("Meals: ", data);
 
+      // CLEAR ALL THE FOOD LOG section HERE
+      $("#brakfastInfo").html("");
+      $("#mid-morningInfo").html("");
+      $("#LunchInfo").html("");
+      $("#mid-afternoonInfo").html("");
+      $("#dinnerInfo").html("");
+
       // display all the meals
       data.forEach((element) => {
         let effects = "";
@@ -156,7 +163,6 @@ $(document).ready(function () {
 
         console.log("This is the after");
         let radioValue = $("input[name='howLong']:checked").val();
-        console.log(radioValue);
 
         let formData = {
           date:
@@ -181,11 +187,20 @@ $(document).ready(function () {
           howLong: radioValue,
           other: $("#other").val(),
         };
-        console.log(formData);
 
         $.post("/api/Meal", formData).then(function (data) {
-          window.location.reload();
+          // window.location.reload();
+          //  POPULATE THE LOGGED MEALS AND CLEAR FORM
           console.log(data);
+          $("#foodform").get(0).reset();
+          let day =
+            parseInt($("#select-month").val()) +
+            1 +
+            "|" +
+            $("#select-day").val() +
+            "|" +
+            $("#select-year").val();
+          retrieveMeals(day);
         });
       });
       // END OF FORM SUBMIT
