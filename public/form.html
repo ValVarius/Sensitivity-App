@@ -70,9 +70,7 @@
         </span>
     </div>
   </nav>
-  <div class="col">
-    <!-- FORM row -->
-    <div class="row" >
+    <!-- FORM  -->
       <div class="container">
       <form class = "form" id="foodform">
         <div class="row">
@@ -103,7 +101,7 @@
           ></textarea>
         </div>
         <div class="row">
-          <div class="col timeslot" id="timeslots">
+          <!-- <div class="col timeslot" id="timeslots"> -->
             <select
               class="form-select timing"
               aria-label="Default select example"
@@ -130,10 +128,11 @@
               <option value="9:00pm">9:00pm</option>
               <option value="10:00pm">10:00pm</option>
             </select>
-          </div>
-    
+          <!-- </div> -->
+        </div>
+        <div class="row">
           <div class="col" >
-            <div class="input-group mb-3">
+            <div class="input-group mb-3" id="weight">
               <span class="input-group-text">Morning Weight</span>
               <input
                 type="text"
@@ -141,7 +140,7 @@
                 aria-label="Amount"
                 name="weight"
                 type="float"
-                id="weight"
+                
               />
               <span class="input-group-text">lb</span>
     
@@ -325,11 +324,9 @@
         </div>
       </form>
     </div>
-    </div>
-    <!-- END of FORM row -->
+    <!-- END of FORM  -->
       
-        <!-- LOGS row -->
-        <div class="row" >
+        <!-- LOGS  -->
           <div class="container" id="logContainer">
           <nav id="navbar-displayer" class="navbar px-3 mb-3" aria-label="">
             <h2 class="nav-item" >Your Logged Meals</h2>
@@ -364,10 +361,8 @@
             <p id="dinnerInfo">...</p>
           </div>
         </div>
-        </div>
-        <!-- ENDS OF LOGS row -->
+        <!-- ENDS OF LOGS  -->
         
-    </div>
     
     </body>
     
