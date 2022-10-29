@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+  console.log(window.innerWidth);
   var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
   let d = new Date();
