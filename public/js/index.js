@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   // console.log(window.innerWidth);
   var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
@@ -146,73 +145,93 @@ $(document).ready(function () {
           );
         }
       });
-
-      // FORM SUBMIT
-      $("form").submit(function (event) {
-        event.preventDefault();
-        // console.log($("#date").text());
-
-        data.forEach((element) => {
-          console.log(element.title + " vs " + $("#mealTitle").val());
-          if (element.title == $("#mealTitle").val()) {
-            console.log("happening");
-            $.ajax({
-              method: "DELETE",
-              url: "/api/delete/" + element.id,
-            });
-          }
-        });
-
-        console.log("This is the after");
-        let radioValue = $("input[name='howLong']:checked").val();
-
-        let formData = {
-          date:
-            parseInt($("#select-month").val()) +
-            1 +
-            "|" +
-            $("#select-day").val() +
-            "|" +
-            $("#select-year").val(),
-          weight: $("#weight").val(),
-          title: $("#mealTitle").val(),
-          food: $("#foodeaten").val(),
-          time: $("#time").val(),
-
-          bloating: $("#bloat:checked").val() ? true : false,
-          headache: $("#head:checked").val() ? true : false,
-          gas: $("#gas:checked").val() ? true : false,
-          itchiness: $("#itchiness:checked").val() ? true : false,
-          reflux: $("#reflux:checked").val() ? true : false,
-          redness: $("#redness:checked").val() ? true : false,
-          noseRunning: $("#noseRunning:checked").val() ? true : false,
-          howLong: radioValue,
-          other: $("#other").val(),
-        };
-
-        $.post("/api/Meal", formData).then(function (data) {
-          // window.location.reload();
-          //  POPULATE THE LOGGED MEALS AND CLEAR FORM
-          console.log(data);
-          $("#foodform").get(0).reset();
-          let day =
-            parseInt($("#select-month").val()) +
-            1 +
-            "|" +
-            $("#select-day").val() +
-            "|" +
-            $("#select-year").val();
-          retrieveMeals(day);
-        });
-      });
-      // END OF FORM SUBMIT
     });
   };
+  // end of retrieve meals
   retrieveMeals(today);
 
   // If search button is clicked retrieveMeals of selected day
-
   $("#daysearch").click(function () {
+    let day =
+      (parseInt($("#select-month").val()) +
+      1 )+
+      "|" +
+      $("#select-day").val() +
+      "|" +
+      $("#select-year").val();
+    retrieveMeals(day);
+  });
+
+  
+// if the meal is breakfast, the morning wight is unnecessary
+$("#mealTitle").change(function () {
+  // console.log(this.form);
+  let meal = $("#mealTitle").find(":selected").val();
+  $("#weight").attr("hidden", true);
+
+  if (meal == "breakfast") {
+    $("#weight").removeAttr("hidden");
+  }
+});
+
+$("form").submit(function (event) {
+  event.preventDefault();
+  console.log(parseInt($("#select-month").val()) + 1);
+  let url = "/api/getMeals/" + 
+  (parseInt($("#select-month").val()) + 1 ) +
+  "|" +
+  $("#select-day").val() +
+  "|" +
+  $("#select-year").val();
+  console.log(url);
+
+  $.get(url, function (data) {
+    formSubmitted(data);
+  });
+});
+
+// FORM SUBMITTED
+function formSubmitted(data) {
+  console.log(data);
+  data.forEach((element) => {
+    if (element.title == $("#mealTitle").val()) {
+      console.log("DELETING " + element.id);
+      $.ajax({
+        method: "DELETE",
+        url: "/api/delete/" + element.id,
+      });
+    }
+  });
+
+  console.log("AFTER DELETING");
+  let radioValue = $("input[name='howLong']:checked").val();
+
+  let formData = {
+    date:
+      parseInt($("#select-month").val()) +
+      1 +
+      "|" +
+      $("#select-day").val() +
+      "|" +
+      $("#select-year").val(),
+    weight: $("#weightInput").val(),
+    title: $("#mealTitle").val(),
+    food: $("#foodeaten").val(),
+    time: $("#time").val(),
+    bloating: $("#bloat:checked").val() ? true : false,
+    headache: $("#head:checked").val() ? true : false,
+    gas: $("#gas:checked").val() ? true : false,
+    itchiness: $("#itchiness:checked").val() ? true : false,
+    reflux: $("#reflux:checked").val() ? true : false,
+    redness: $("#redness:checked").val() ? true : false,
+    noseRunning: $("#noseRunning:checked").val() ? true : false,
+    howLong: radioValue,
+    other: $("#other").val(),
+  };
+
+  $.post("/api/Meal", formData).then(function (data) {
+    // is this necessary??????????????????
+    $("#foodform").get(0).reset();
     let day =
       parseInt($("#select-month").val()) +
       1 +
@@ -222,6 +241,17 @@ $(document).ready(function () {
       $("#select-year").val();
     retrieveMeals(day);
   });
+}
+// END OF FORM SUBMITTED
+
+
+
+
+
+
+
+
+
 
   // let url = "/api/getMeals/" + date;
   // $.get(url, function (data) {
@@ -356,20 +386,5 @@ $(document).ready(function () {
   // $.get("/api/Meal", function (data) {
   //   console.log("Meals: ", data);
   // });
-}); //End of ready function
-
-// if the meal is breakfast, the morning wight is unnecessary
-$("#mealTitle").change(function () {
-  // console.log(this.form);
-  let meal = $("#mealTitle").find(":selected").val();
-  $("#weight").attr("hidden", true);
-
-  if (meal == "breakfast") {
-    $("#weight").removeAttr("hidden");
-  }
 });
-
-// $("#savebtn").click(function (event) {
-//   event.preventDefault();
-//   console.log(event);
-// })
+//End of ready function
