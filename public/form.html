@@ -19,60 +19,67 @@
       title="no title"
     />
     <!-- jQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+    ></script>
   </head>
   <body>
-  <nav class="navbar navbar-expand" aria-label="">
-    <div class="container-fluid">
-      <a href="#" class="navbar-brand"><img
-          style="max-width:100px; margin-top: -7px;"
-          src="https://cellsciencesystems.com/images/cell-science-systems-logo.png"
-          alt="cell science systems logo"
+    <nav class="navbar navbar-expand" aria-label="">
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand"
+          ><img
+            style="max-width: 100px; margin-top: -7px"
+            src="https://cellsciencesystems.com/images/cell-science-systems-logo.png"
+            alt="cell science systems logo"
         /></a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-     
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="select-date">
+            <select id="select-day"></select>
+            <select id="select-month">
+              <option value="0">January</option>
+              <option value="1">February</option>
+              <option value="2">March</option>
+              <option value="3">April</option>
+              <option value="4">May</option>
+              <option value="5">June</option>
+              <option value="6">July</option>
+              <option value="7">August</option>
+              <option value="8">September</option>
+              <option value="9">October</option>
+              <option value="10">November</option>
+              <option value="11">December</option>
+            </select>
 
-        <div class="select-date">
-          <select id="select-day"></select>
-          <select id="select-month">
-                <option value="0">January</option>
-                <option value="1">February</option>
-                <option value="2">March</option>
-                <option value="3">April</option>
-                <option value="4">May</option>
-                <option value="5">June</option>
-                <option value="6">July</option>
-                <option value="7">August</option>
-                <option value="8">September</option>
-                <option value="9">October</option>
-                <option value="10">November</option>
-                <option value="11">December</option>
-          </select>
-          
-          <select id="select-year"></select>
-          <button class="btn btn-outline-danger" id="daysearch">Search</button>
+            <select id="select-year"></select>
+            <button class="btn btn-outline-danger" id="daysearch">
+              Search
+            </button>
+          </div>
         </div>
-
-      </div>
-      <span class="navbar-text" id="date" style="margin-right: 25px; color: black";>
+        <span
+          class="navbar-text"
+          id="date"
+          style="margin-right: 25px; color: black"
+          ;
+        >
         </span>
-    </div>
-  </nav>
+      </div>
+    </nav>
     <!-- FORM  -->
-      <div class="container">
-      <form class = "form" id="foodform">
+    <div class="container">
+      <form class="form" id="foodform">
         <div class="row">
           <select
             class="form-select"
@@ -86,10 +93,9 @@
             <option value="lunch">Lunch</option>
             <option value="afternoon">Afternoon Snack</option>
             <option value="dinner">Dinner</option>
-    
           </select>
         </div>
-    
+
         <div class="row">
           <label for="food eaten" class="form-label">Food Eaten:</label>
           <textarea
@@ -102,36 +108,36 @@
         </div>
         <div class="row">
           <!-- <div class="col timeslot" id="timeslots"> -->
-            <select
-              class="form-select timing"
-              aria-label="Default select example"
-              name="time"
-              type="time"
-              id="time"
-            >
-              <option selected value="5:00am">5:00am</option>
-              <option value="6:00am">6:00am</option>
-              <option value="7:00am">7:00am</option>
-              <option value="8:00am">8:00am</option>
-              <option value="9:00am">9:00am</option>
-              <option value="10:00am">10:00am</option>
-              <option value="11:00am">11:00am</option>
-              <option value="12:00am">12:00am</option>
-              <option value="1:00pm">1:00pm</option>
-              <option value="2:00pm">2:00pm</option>
-              <option value="3:00pm">3:00pm</option>
-              <option value="4:00pm">4:00pm</option>
-              <option value="5:00pm">5:00pm</option>
-              <option value="6:00pm">6:00pm</option>
-              <option value="7:00pm">7:00pm</option>
-              <option value="8:00pm">8:00pm</option>
-              <option value="9:00pm">9:00pm</option>
-              <option value="10:00pm">10:00pm</option>
-            </select>
+          <select
+            class="form-select timing"
+            aria-label="Default select example"
+            name="time"
+            type="time"
+            id="time"
+          >
+            <option selected value="5:00am">5:00am</option>
+            <option value="6:00am">6:00am</option>
+            <option value="7:00am">7:00am</option>
+            <option value="8:00am">8:00am</option>
+            <option value="9:00am">9:00am</option>
+            <option value="10:00am">10:00am</option>
+            <option value="11:00am">11:00am</option>
+            <option value="12:00am">12:00am</option>
+            <option value="1:00pm">1:00pm</option>
+            <option value="2:00pm">2:00pm</option>
+            <option value="3:00pm">3:00pm</option>
+            <option value="4:00pm">4:00pm</option>
+            <option value="5:00pm">5:00pm</option>
+            <option value="6:00pm">6:00pm</option>
+            <option value="7:00pm">7:00pm</option>
+            <option value="8:00pm">8:00pm</option>
+            <option value="9:00pm">9:00pm</option>
+            <option value="10:00pm">10:00pm</option>
+          </select>
           <!-- </div> -->
         </div>
         <div class="row">
-          <div class="col" >
+          <div class="col">
             <div class="input-group mb-3" id="weight">
               <span class="input-group-text">Morning Weight</span>
               <input
@@ -140,14 +146,12 @@
                 aria-label="Amount"
                 name="weight"
                 type="float"
-                
               />
               <span class="input-group-text">lb</span>
-    
             </div>
           </div>
         </div>
-    
+
         <div class="row" id="checks">
           <div class="col">
             <div class="form-check form-switch">
@@ -158,10 +162,9 @@
                 id="bloat"
                 name="bloating"
               />
-              <label
-                class="form-check-label"
-                for="flexSwitchCheckDefault"
-              >Bloating</label>
+              <label class="form-check-label" for="flexSwitchCheckDefault"
+                >Bloating</label
+              >
             </div>
           </div>
           <div class="col">
@@ -173,10 +176,9 @@
                 id="head"
                 name="headache"
               />
-              <label
-                class="form-check-label"
-                for="flexSwitchCheckDefault"
-              >Headache</label>
+              <label class="form-check-label" for="flexSwitchCheckDefault"
+                >Headache</label
+              >
             </div>
           </div>
           <div class="col">
@@ -188,10 +190,9 @@
                 id="gas"
                 name="gas"
               />
-              <label
-                class="form-check-label"
-                for="flexSwitchCheckDefault"
-              >Gas</label>
+              <label class="form-check-label" for="flexSwitchCheckDefault"
+                >Gas</label
+              >
             </div>
           </div>
           <div class="col">
@@ -203,10 +204,9 @@
                 id="itchiness"
                 name="itchiness"
               />
-              <label
-                class="form-check-label"
-                for="flexSwitchCheckDefault"
-              >Itchiness</label>
+              <label class="form-check-label" for="flexSwitchCheckDefault"
+                >Itchiness</label
+              >
             </div>
           </div>
           <div class="col">
@@ -218,10 +218,9 @@
                 id="reflux"
                 name="reflux"
               />
-              <label
-                class="form-check-label"
-                for="flexSwitchCheckDefault"
-              >Reflux</label>
+              <label class="form-check-label" for="flexSwitchCheckDefault"
+                >Reflux</label
+              >
             </div>
           </div>
           <div class="col">
@@ -233,10 +232,9 @@
                 id="redness"
                 name="redness"
               />
-              <label
-                class="form-check-label"
-                for="flexSwitchCheckDefault"
-              >Redness/Flushing</label>
+              <label class="form-check-label" for="flexSwitchCheckDefault"
+                >Redness/Flushing</label
+              >
             </div>
           </div>
           <div class="col">
@@ -248,18 +246,21 @@
                 id="noseRunning"
                 name="noseRunning"
               />
-              <label class="form-check-label" for="flexSwitchCheckDefault">Nose
-                Running</label>
+              <label class="form-check-label" for="flexSwitchCheckDefault"
+                >Nose Running</label
+              >
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col" id="howLongLabel">
-            <label for="food eaten" class="form-label">How long after meal:</label>
+            <label for="food eaten" class="form-label"
+              >How long after meal:</label
+            >
           </div>
-    
+
           <div class="col-8" id="howlong">
-            <div class="form-check form-check-inline" >
+            <div class="form-check form-check-inline">
               <input
                 class="form-check-input"
                 type="radio"
@@ -267,7 +268,9 @@
                 id="inlineRadio1"
                 value="Immediately"
               />
-              <label class="form-check-label" for="inlineRadio1">Immediately</label>
+              <label class="form-check-label" for="inlineRadio1"
+                >Immediately</label
+              >
             </div>
             <div class="form-check form-check-inline">
               <input
@@ -277,7 +280,9 @@
                 id="inlineRadio2"
                 value="Within 1st Hour"
               />
-              <label class="form-check-label" for="inlineRadio2">Within 1st Hour</label>
+              <label class="form-check-label" for="inlineRadio2"
+                >Within 1st Hour</label
+              >
             </div>
             <div class="form-check form-check-inline">
               <input
@@ -287,7 +292,9 @@
                 id="inlineRadio3"
                 value="1 to 2 Hours"
               />
-              <label class="form-check-label" for="inlineRadio3">1 to 2 Hours</label>
+              <label class="form-check-label" for="inlineRadio3"
+                >1 to 2 Hours</label
+              >
             </div>
             <div class="form-check form-check-inline">
               <input
@@ -297,11 +304,11 @@
                 id="inlineRadio1"
                 value="2 - 4 hours"
               />
-              <label class="form-check-label" for="inlineRadio1">2 - 4 hours</label>
+              <label class="form-check-label" for="inlineRadio1"
+                >2 - 4 hours</label
+              >
             </div>
-    
           </div>
-    
         </div>
         <div class="row">
           <label for="food eaten" class="form-label">Other:</label>
@@ -312,7 +319,6 @@
             rows="1"
             id="other"
           ></textarea>
-    
         </div>
         <div class="row">
           <button
@@ -320,53 +326,81 @@
             class="btn btn-outline-danger"
             id="savebtn"
             value="Send form data!"
-          >Save</button>
+          >
+            Save
+          </button>
         </div>
       </form>
     </div>
     <!-- END of FORM  -->
-      
-        <!-- LOGS  -->
-          <div class="container" id="logContainer">
-          <nav id="navbar-displayer" class="navbar px-3 mb-3" aria-label="">
-            <h2 class="nav-item" >Your Logged Meals</h2>
-            <ul class="nav nav-pills">
-              
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" id="dropDown">Dropdown</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#scrollspyHeading1">Breakfast</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#scrollspyHeading2">Mid Morning</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#scrollspyHeading3">Lunch</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#scrollspyHeading4">Mid Afternoon</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#scrollspyHeading5">Dinner</a></li>
-                </ul>
+
+    <!-- LOGS  -->
+    <div class="container" id="logContainer">
+      <nav id="navbar-displayer" class="navbar px-3 mb-3" aria-label="">
+        <h2 class="nav-item">Your Logged Meals</h2>
+        <ul class="nav nav-pills">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              href="#"
+              role="button"
+              aria-expanded="false"
+              id="dropDown"
+              >Dropdown</a
+            >
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="#scrollspyHeading1">Breakfast</a>
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="#scrollspyHeading2"
+                  >Mid Morning</a
+                >
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="#scrollspyHeading3">Lunch</a>
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="#scrollspyHeading4"
+                  >Mid Afternoon</a
+                >
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="#scrollspyHeading5">Dinner</a>
               </li>
             </ul>
-          </nav>
-          <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example p-3 rounded-2" tabindex="0" id="mealdisplay" >
-            <h4 id="scrollspyHeading1">Breakfast</h4>
-            <p id="brakfastInfo">...</p>
-            <h4 id="scrollspyHeading2">Mid Morning</h4>
-            <p id="mid-morningInfo">...</p>
-            <h4 id="scrollspyHeading3">Lunch</h4>
-            <p id="LunchInfo">...</p>
-            <h4 id="scrollspyHeading4">Mid Afternoon</h4>
-            <p id="mid-afternoonInfo">...</p>
-            <h4 id="scrollspyHeading5">Dinner</h4>
-            <p id="dinnerInfo">...</p>
-          </div>
-        </div>
-        <!-- ENDS OF LOGS  -->
-        
-    
-    </body>
-    
-<!-- Bootstrap -->
+          </li>
+        </ul>
+      </nav>
+      <div
+        data-bs-spy="scroll"
+        data-bs-target="#navbar-example2"
+        data-bs-root-margin="0px 0px -40%"
+        data-bs-smooth-scroll="true"
+        class="scrollspy-example p-3 rounded-2"
+        tabindex="0"
+        id="mealdisplay"
+      >
+        <h4 id="scrollspyHeading1">Breakfast</h4>
+        <p id="brakfastInfo">...</p>
+        <h4 id="scrollspyHeading2">Mid Morning</h4>
+        <p id="mid-morningInfo">...</p>
+        <h4 id="scrollspyHeading3">Lunch</h4>
+        <p id="LunchInfo">...</p>
+        <h4 id="scrollspyHeading4">Mid Afternoon</h4>
+        <p id="mid-afternoonInfo">...</p>
+        <h4 id="scrollspyHeading5">Dinner</h4>
+        <p id="dinnerInfo">...</p>
+      </div>
+    </div>
+    <!-- ENDS OF LOGS  -->
+
+    <!-- Bootstrap -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
@@ -374,9 +408,14 @@
     ></script>
     <script type="text/javascript" src="js/index.js"></script>
 
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("service-worker.js").then((reg) => {
+            console.log("We found your service worker file!", reg);
+          });
+        });
+      }
+    </script>
   </body>
 </html>
-
-
-
-
