@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-  console.log(window.innerWidth);
+  // console.log(window.innerWidth);
   var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
   let d = new Date();
@@ -60,7 +60,7 @@ $(document).ready(function () {
   // retrieve all the meals with today's date
   let retrieveMeals = (date) => {
     let url = "/api/getMeals/" + date;
-    console.log(date);
+    // console.log(date);
     $.get(url, function (data) {
       console.log("Meals: ", data);
 
