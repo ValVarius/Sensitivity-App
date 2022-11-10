@@ -13,7 +13,6 @@ $(document).ready(function () {
     db = event.target.result;
     if (navigator.onLine) {
       checkDatabase();
-      console.log("YOU ARE ONLINE!");
     }
   };
   request.onerror = function (event) {
@@ -21,6 +20,7 @@ $(document).ready(function () {
     console.log(event.target.error);
   };
   var saveRecord = (record) => {
+    // IMPLEMENT CODE TO CHECK IF SAME MEAL EXIST AND IF YES DELETE IT?????
     // create a transaction on the pending db with readwrite access
     const transaction = db.transaction(["pending"], "readwrite");
     // access your pending object store
@@ -28,11 +28,11 @@ $(document).ready(function () {
     // add record to your store with add method.
     pendingStore.add(record);
     console.log("added record");
+    $("#foodform").get(0).reset();
   };
 
-  var checkDatabase = () => {
+  const checkDatabase = () => {
     // open a transaction on your pending db
-    console.log("checking...");
     const transaction = db.transaction(["pending"], "readwrite");
     // access your pending object store
     const pendingStore = transaction.objectStore("pending");
@@ -45,50 +45,32 @@ $(document).ready(function () {
         // for each result, check if there is a meal with same date and title and delete it,
         // then store the result. On succes delete result.
         for (let i = 0; i < getAll.result.length; i++) {
-
-
           function deletePrevious() {
-            return new Promise(function(resolve, reject) {
+            return new Promise(function (resolve, reject) {
               $.ajax({
                 method: "DELETE",
                 url: "/api/deletetitledate",
                 data: getAll.result[i],
-                success: function(data) {
-                  resolve(data) // Resolve promise and go to then()
+                success: function (data) {
+                  resolve(data); // Resolve promise and go to then()
                 },
-                error: function(err) {
-                  reject(err) // Reject the promise and go to catch()
-                }
+                error: function (err) {
+                  reject(err); // Reject the promise and go to catch()
+                },
               });
             });
           }
-          deletePrevious().then(function(data) {
+          deletePrevious()
+            .then(function (data) {
               // Run this when your request was successful
-              console.log(data)
-              $.post("/api/Meal", getAll.result[i])
-            }).catch(function(err) {
-              // Run this when promise was rejected via reject()
-              console.log(err)
+              console.log(data);
+              console.log(getAll.result[i]);
+              $.post("/api/Meal", getAll.result[i]);
             })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            .catch(function (err) {
+              // Run this when promise was rejected via reject()
+              console.log(err);
+            });
 
           // $.ajax({
           //   method: "DELETE",
@@ -284,7 +266,6 @@ $(document).ready(function () {
 
   $("form").submit(function (event) {
     event.preventDefault();
-    console.log(parseInt($("#select-month").val()) + 1);
     let url =
       "/api/getMeals/" +
       (parseInt($("#select-month").val()) + 1) +
@@ -293,27 +274,6 @@ $(document).ready(function () {
       "|" +
       $("#select-year").val();
     console.log(url);
-
-    $.get(url, function (data) {
-      formSubmitted(data);
-    });
-  });
-
-  // FORM SUBMITTED
-  function formSubmitted(data) {
-    console.log(data);
-    data.forEach((element) => {
-      if (element.title == $("#mealTitle").val()) {
-        console.log("DELETING " + element.id);
-        $.ajax({
-          method: "DELETE",
-          url: "/api/delete/" + element.id,
-        });
-      }
-    });
-
-    console.log("AFTER DELETING");
-    let radioValue = $("input[name='howLong']:checked").val();
 
     let formData = {
       date:
@@ -334,9 +294,33 @@ $(document).ready(function () {
       reflux: $("#reflux:checked").val() ? true : false,
       redness: $("#redness:checked").val() ? true : false,
       noseRunning: $("#noseRunning:checked").val() ? true : false,
-      howLong: radioValue,
+      howLong: $("input[name='howLong']:checked").val(),
       other: $("#other").val(),
     };
+
+    $.get(url, function (data) {
+      formSubmitted(data, formData);
+    }).fail(function () {
+      // store meal in indexedBB
+      console.log(formData);
+      saveRecord(formData);
+    });
+  });
+
+  // FORM SUBMITTED
+  function formSubmitted(data, formData) {
+    console.log(data);
+    data.forEach((element) => {
+      if (element.title == $("#mealTitle").val()) {
+        console.log("DELETING " + element.id);
+        $.ajax({
+          method: "DELETE",
+          url: "/api/delete/" + element.id,
+        });
+      }
+    });
+
+    console.log("AFTER DELETING");
 
     $.post("/api/Meal", formData)
       .then(function (data) {

@@ -1,6 +1,6 @@
 
 const express = require("express");
-var compression = require('compression')
+const compression = require('compression')
 
 // Sets up the Express App
 const app = express();
