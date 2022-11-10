@@ -21,17 +21,35 @@ const CACHE_NAME = "static-cache-v2";
 const DATA_CACHE_NAME = "data-cache-v1";
 
 //install
-self.addEventListener("install", function (event) {
-//   console.log("Installing is happening!!");
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log("Your files were pre-cached successfully!");
-      return cache.addAll(FILES_TO_CACHE);
-    })
-  );
+// self.addEventListener("install", function (event) {
+// //   console.log("Installing is happening!!");
+//   event.waitUntil(
+//     caches.open(CACHE_NAME).then((cache) => {
+//       console.log("Your files were pre-cached successfully!");
+//       return cache.addAll(FILES_TO_CACHE);
+//     })
+//   );
 
-  self.skipWaiting();
+//   self.skipWaiting();
+// });
+
+
+self.addEventListener('install', (e) => {
+  console.log('[Service Worker] Install');
+  e.waitUntil((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    console.log("Your files were pre-cached successfully!");
+    await cache.addAll(FILES_TO_CACHE);
+  })());
 });
+
+
+
+
+
+
+
+
 
 //   activate
 self.addEventListener("activate", function (event) {
