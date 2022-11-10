@@ -1,3 +1,5 @@
+
+
 const FILES_TO_CACHE = [
   "/",
   "/form.html",
@@ -52,8 +54,6 @@ self.addEventListener("activate", function (event) {
 
 // fetch
 self.addEventListener("fetch", function (event) {
-//   console.log(event.request.url);
-//   console.log("Fetch is happening!!");
 
   if (event.request.url.includes("/api/")) {
     event.respondWith(
@@ -88,3 +88,5 @@ self.addEventListener("fetch", function (event) {
     })
   );
 });
+
+

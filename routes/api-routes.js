@@ -63,5 +63,18 @@ module.exports = function (app) {
       res.json(dbMeal);
     });
   });
+  app.delete("/api/deletetitledate", function(req, res) {
+
+    console.log(req);
+    db.Meal.destroy({
+      where: {
+        title: req.body.title,
+        date: req.body.date
+      }
+    }).then(function(dbMeal) {
+      console.log("DELETED??? ", dbMeal);
+      res.json(dbMeal);
+    });
+  });
 
 };
