@@ -29,10 +29,7 @@ module.exports = function (app) {
 
   // POST route for saving a new post
   app.post("/api/Meal", function (req, res) {
-    // get date
-
-    console.log(req.body);
-
+   
     db.Meal.create({
       date: req.body.date,
       weight: req.body.weight ? req.body.weight : 0,
@@ -65,7 +62,7 @@ module.exports = function (app) {
   });
   app.delete("/api/deletetitledate", function(req, res) {
 
-    console.log(req);
+    console.log(req.body);
     db.Meal.destroy({
       where: {
         title: req.body.title,

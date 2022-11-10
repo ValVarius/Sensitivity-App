@@ -42,22 +42,62 @@ $(document).ready(function () {
       if (getAll.result.length > 0) {
         // Store meals route
 
-        console.log(getAll.result);
-
         // for each result, check if there is a meal with same date and title and delete it,
         // then store the result. On succes delete result.
         for (let i = 0; i < getAll.result.length; i++) {
-          $.ajax({
-            method: "DELETE",
-            url: "/api/deletetitledate",
-            data: getAll.result[i],
-          })
-            .then(function (data) {
-              $.post("/api/Meal", getAll.result[i]).then((response) => response.json());
-            })
-            .then((response) => {
-              console.log("Recorded: "+ getAll.result[i]);
+
+
+          function deletePrevious() {
+            return new Promise(function(resolve, reject) {
+              $.ajax({
+                method: "DELETE",
+                url: "/api/deletetitledate",
+                data: getAll.result[i],
+                success: function(data) {
+                  resolve(data) // Resolve promise and go to then()
+                },
+                error: function(err) {
+                  reject(err) // Reject the promise and go to catch()
+                }
+              });
             });
+          }
+          deletePrevious().then(function(data) {
+              // Run this when your request was successful
+              console.log(data)
+              $.post("/api/Meal", getAll.result[i])
+            }).catch(function(err) {
+              // Run this when promise was rejected via reject()
+              console.log(err)
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          // $.ajax({
+          //   method: "DELETE",
+          //   url: "/api/deletetitledate",
+          //   data: getAll.result[i],
+          // })
+          // // .then(console.log("Deletion Attempt " + i))
+          // .then($.post("/api/Meal", getAll.result[i]))
+          // // .then(console.log("Recorded: "+ getAll.result[i]));
         }
         // clear all items in your store
         pendingStore.clear();
@@ -66,7 +106,7 @@ $(document).ready(function () {
   };
 
   // listen for app coming back online
-  // window.addEventListener("online", checkDatabase);
+  window.addEventListener("online", checkDatabase);
 
   // console.log(window.innerWidth);
   var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
